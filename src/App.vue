@@ -1,28 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <app-header></app-header>
+    <produtos></produtos>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import AppHeader from "./components/Header.vue";
+import Produtos from "./components/Produtos.vue";
+//import barramento from "./barramento";
 export default {
-  name: 'App',
+  props: { carrinho: Array },
+  name: "App",
   components: {
-    HelloWorld
+    AppHeader,
+    Produtos
+  },
+  methods: {
+    //checarLocalStorage() {
+    //if (window.localStorage.carrinho) {
+    //barramento.dadosCarrinho(itens => {
+    // window.localStorage.itens = JSON.stringify(itens);
+    //});
+    //this.itens = JSON.parse(window.localStorage.itens);
+    //}
+    //}
   }
-}
+  //created() {
+  //this.checarLocalStorage();
+  //}
+};
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Noto Serif";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+body {
+  background: linear-gradient(to right, #1a1a1a 30%, #ffffff 30%);
 }
 </style>
